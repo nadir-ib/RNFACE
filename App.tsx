@@ -5,7 +5,7 @@ import {
   useCameraDevice,
   useFrameProcessor,
 } from 'react-native-vision-camera';
-
+import {Worklets} from 'react-native-worklets-core';
 
 export default function App() {
   const device = useCameraDevice('front');
@@ -27,14 +27,14 @@ export default function App() {
   // };
 
 
-  // const frameProcessor = useFrameProcessor((frame) => {
-  //   'worklet';
-  //   // const imageAsBase64 = toBase64(frame);
-  //   console.log('work!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+  const frameProcessor = useFrameProcessor((frame) => {
+    'worklet';
+    // const imageAsBase64 = toBase64(frame);
+    console.log('work!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
 
-  //   // Ensure that runOnJS is correctly used and imported
-  //   // runOnJS(base64ToURI)(imageAsBase64);
-  // }, []);
+    // Ensure that runOnJS is correctly used and imported
+    // runOnJS(base64ToURI)(imageAsBase64);
+  }, []);
 
 
 
@@ -67,10 +67,10 @@ export default function App() {
           style={StyleSheet.absoluteFill}
           device={device}
           isActive={!!device}
-          // frameProcessor={frameProcessor}
+          frameProcessor={frameProcessor}
           // // pixel format should be either yuv or rgb
           // pixelFormat="yuv"
-          // frameProcessorFps={1}
+          frameProcessorFps={1}
         />
       </View>
     );

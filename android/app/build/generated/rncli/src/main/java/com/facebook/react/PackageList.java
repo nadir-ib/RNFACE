@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 // react-native-vision-camera
 import com.mrousavy.camera.CameraPackage;
+// react-native-worklets-core
+import com.worklets.WorkletsPackage;
 
 public class PackageList {
   private Application application;
@@ -58,7 +60,8 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
-      new CameraPackage()
+      new CameraPackage(),
+      new WorkletsPackage()
     ));
   }
 }
